@@ -1,10 +1,15 @@
 ---
-- name: Envoyer un message 1
-  debug:
-    msg: "Hello1 depuis AWX"
-  tags: message
-  
-- name: Envoyer un message 2
-  debug:
-    msg: "Hello2 depuis AWX"
-  tags: message
+- name: Envoyer des messages
+  hosts: machi_carlos_test
+  gather_facts: no
+
+  tasks:
+    - name: Envoyer un message 1
+      ansible.builtin.debug:
+        msg: "Hello1 depuis AWX"
+      tags: message
+
+    - name: Envoyer un message 2
+      ansible.builtin.debug:
+        msg: "Hello2 depuis AWX"
+      tags: message
