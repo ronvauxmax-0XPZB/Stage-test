@@ -1,7 +1,7 @@
 ---
 - name: Test de base Ansible
   hosts: all
-  become: true
+  become: false
 
   tasks:
     - name: Vérifier la connexion au serveur
