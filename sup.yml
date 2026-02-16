@@ -1,4 +1,3 @@
----
   tasks:
     - name: Vérifier la connexion au serveur
       ping:
