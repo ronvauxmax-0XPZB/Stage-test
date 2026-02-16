@@ -1,0 +1,12 @@
+---
+- name: Test de base Ansible
+  hosts: all
+  become: false
+
+  tasks:
+    - name: Vérifier la connexion au serveur
+      ping:
+
+    - name: Afficher un message
+      debug:
+        msg: "Ansible fonctionne correctement sur {{ inventory_hostname }} !"
