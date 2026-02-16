@@ -1,7 +1,9 @@
-  tasks:
-    - name: Vérifier la connexion au serveur
-      ping:
-
-    - name: Afficher un message
-      debug:
-        msg: "Ansible fonctionne correctement sur {{ inventory_hostname }} !"
+- name: Envoyer un message 1
+  debug:
+    msg: "Hello1 depuis AWX"
+  tags: message
+  
+- name: Envoyer un message 2
+  debug:
+    msg: "Hello2 depuis AWX"
+  tags: message
