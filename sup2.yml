@@ -1,0 +1,9 @@
+- name: Envoyer un message 1
+  debug:
+    msg: "Hello1 depuis AWX"
+  tags: message
+  
+- name: Envoyer un message 2
+  debug:
+    msg: "Hello2 depuis AWX"
+  tags: message
