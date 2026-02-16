@@ -1,3 +1,4 @@
+---
 - name: Envoyer un message 1
   debug:
     msg: "Hello1 depuis AWX"
