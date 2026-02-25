@@ -1,18 +1,20 @@
-
 ---
-- name: Trigger AWX backup on k3s
+- name: Backup AWX local
   hosts: localhost
-  gather_facts: false
+  become: yes
 
   tasks:
-    - name: Create AWXBackup CR
-      kubernetes.core.k8s:
-        kubeconfig: /etc/rancher/k3s/k3s.yaml
-        state: present
-        definition:
-          apiVersion: awx.ansible.com/v1beta1
-          kind: AWXBackup
-          metadata:
-            name: awx-backup-{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}
-          spec:
-            awx_instance: awx
+
+    - name: Créer le dossier de backup si inexistant
+      file:
+        path: /var/backups/awx
+        state: directory
+        mode: '0755'
+
+    - name: Lancer le backup AWX
+      command: awx-backup -f /var/backups/awx
+      register: backup_result
+
+    - name: Afficher le résultat du backup
+      debug:
+        var: backup_result.stdout
