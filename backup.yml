@@ -1,7 +1,7 @@
 ---
 - name: Backup AWX local
   hosts: localhost
-  become: false
+  become: yes
 
   tasks:
 
